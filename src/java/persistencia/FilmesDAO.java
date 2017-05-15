@@ -14,11 +14,11 @@ public class FilmesDAO {
 
     private Connection conexao;
 
-    public FilmesDAO() {
+    public FilmesDAO() throws SQLException, ClassNotFoundException {
         conexao = ConexaoFactory.getConnection();
     }
 
-    public boolean inserirCliente(Filmes f) {
+    public boolean inserirFilmes(Filmes f) {
 
         boolean resultado = false;
 
@@ -30,12 +30,12 @@ public class FilmesDAO {
             
             PreparedStatement stmt = conexao.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             stmt.setString(1, f.getTitulo());
-            stmt.setInt(2, f.getCodGenero());
+            stmt.setInt(2, f.getGenero().getCodigo());
             stmt.setString(3, f.getSinopse());
             stmt.setString(4, f.getDiretor());
             stmt.setInt(5, f.getAnoLancamento());
             stmt.setString(6, f.getStatus());
-            stmt.setString(7, f.getUsuarioCadastro());
+            stmt.setString(7, f.getUsuarioCadastro().getLogin());
             Timestamp dataAux = new Timestamp(f.getDatahoraCadastro().getTime());
             stmt.setTimestamp(8, dataAux);
                     

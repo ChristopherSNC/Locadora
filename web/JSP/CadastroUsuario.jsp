@@ -34,7 +34,9 @@
             
             <label>Status:</label><br>
             <input type="radio" name="Status" value="Ativo" checked="checked" />Ativo
+            
             <input type="radio" name="Status" value="Inativo" />Inativo<br><br>
+            
             <input type="submit" value="Cadastrar"><br>
         </form>
     </body>

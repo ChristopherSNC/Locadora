@@ -16,6 +16,15 @@ public class Usuario {
     private String perfil;
     private String status;
 
+    public Usuario() {
+    }
+
+    public Usuario(String login) {
+        this.login = login;
+        
+    }
+
+    
     /**
      * @return the login
      */

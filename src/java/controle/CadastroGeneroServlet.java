@@ -12,6 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Genero;
+import modelo.Usuario;
+import persistencia.GeneroDAO;
+import persistencia.UsuarioDAO;
 
 /**
  *
@@ -32,15 +36,31 @@ public class CadastroGeneroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String msgErro = "";
+        
+        String nome = request.getParameter("txtNome");
+        String descricao = request.getParameter("txtDescricao");
+        
+        Genero g = new Genero();
+        g.setNome(nome);
+        g.setDescricao(descricao);
+        
+          try{
+            GeneroDAO generoDao = new GeneroDAO();
+            generoDao.inserirGenero(g);
+          }catch(Exception e){
+            msgErro = "Falha ao inserir o Gênero";
+          }
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroGeneroServlet</title>");            
+            out.println("<title>Algo inesperado aconteceu</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CadastroGeneroServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h2>Ocorreu um erro: " + msgErro + "</h2>");
             out.println("</body>");
             out.println("</html>");
         }

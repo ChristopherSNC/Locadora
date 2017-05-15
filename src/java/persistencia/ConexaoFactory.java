@@ -15,7 +15,7 @@ public class ConexaoFactory {
 
     //  Database credentials
     
-    public static Connection getConexao() throws SQLException, ClassNotFoundException{
+    public static Connection getConnection() throws SQLException, ClassNotFoundException{
         
         Connection conn = null;
         
@@ -33,8 +33,5 @@ public class ConexaoFactory {
         return conn;
     }
 
-    static Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

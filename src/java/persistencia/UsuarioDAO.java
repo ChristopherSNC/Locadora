@@ -12,11 +12,11 @@ public class UsuarioDAO {
 
     private Connection conexao;
 
-    public UsuarioDAO() {
+    public UsuarioDAO() throws SQLException, ClassNotFoundException {
         conexao = ConexaoFactory.getConnection();
     }
 
-    public boolean inserirCliente(Usuario u) {
+    public boolean inserirUsuario(Usuario u) {
 
         boolean resultado = false;
 

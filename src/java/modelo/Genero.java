@@ -14,6 +14,14 @@ public class Genero {
     private String descricao;  
     private int codigo;
 
+    public Genero() {
+    }
+
+    public Genero(int codigo) {
+        this.codigo = codigo;
+    }
+    
+
     /**
      * @return the nome
      */

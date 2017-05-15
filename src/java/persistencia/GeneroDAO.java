@@ -13,7 +13,7 @@ public class GeneroDAO {
 
     private Connection conexao;
 
-    public GeneroDAO() {
+    public GeneroDAO() throws SQLException, ClassNotFoundException {
         conexao = ConexaoFactory.getConnection();
     }
 

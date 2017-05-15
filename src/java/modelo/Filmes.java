@@ -5,7 +5,9 @@
  */
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 /**
  *
@@ -14,12 +16,12 @@ import java.sql.Date;
 public class Filmes {
    private int codigo;
    private String titulo;
-   private int codGenero;
+   private Genero Genero;
    private String sinopse;
    private String diretor;
    private int anoLancamento;
    private String status;
-   private String usuarioCadastro;
+   private Usuario usuarioCadastro;
    private Date datahoraCadastro;
 
     /**
@@ -50,23 +52,7 @@ public class Filmes {
         this.titulo = titulo;
     }
 
-    /**
-     * @return the codGenero
-     */
-    public int getCodGenero() {
-        return codGenero;
-    }
-
-    /**
-     * @param codGenero the codGenero to set
-     */
-    public void setCodGenero(int codGenero) {
-        this.codGenero = codGenero;
-    }
-
-    /**
-     * @return the sinopse
-     */
+    
     public String getSinopse() {
         return sinopse;
     }
@@ -123,16 +109,7 @@ public class Filmes {
     /**
      * @return the usuarioCadastro
      */
-    public String getUsuarioCadastro() {
-        return usuarioCadastro;
-    }
-
-    /**
-     * @param usuarioCadastro the usuarioCadastro to set
-     */
-    public void setUsuarioCadastro(String usuarioCadastro) {
-        this.usuarioCadastro = usuarioCadastro;
-    }
+    
 
     /**
      * @return the datahoraCadastro
@@ -146,5 +123,33 @@ public class Filmes {
      */
     public void setDatahoraCadastro(Date datahoraCadastro) {
         this.datahoraCadastro = datahoraCadastro;
+    }
+
+    /**
+     * @return the Genero
+     */
+    public Genero getGenero() {
+        return Genero;
+    }
+
+    /**
+     * @param Genero the Genero to set
+     */
+    public void setGenero(Genero Genero) {
+        this.Genero = Genero;
+    }
+
+    /**
+     * @return the usuarioCadastro
+     */
+    public Usuario getUsuarioCadastro() {
+        return usuarioCadastro;
+    }
+
+    /**
+     * @param usuarioCadastro the usuarioCadastro to set
+     */
+    public void setUsuarioCadastro(Usuario usuarioCadastro) {
+        this.usuarioCadastro = usuarioCadastro;
     }
 }

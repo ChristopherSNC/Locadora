@@ -64,7 +64,9 @@ public final class CadastroFilmes_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <h1>Cadastrar Filme</h1>\n");
       out.write("        <hr>\n");
       out.write("        <a href=\"javascript:history.back()\">Voltar</a><br><br>\n");
+      out.write("        \n");
       out.write("        <form action=\"ProdutoIncluir\">\n");
+      out.write("            \n");
       out.write("            <label>Título:</label><br>\n");
       out.write("            <input type=\"text\" minlength=\"3\" name=\"txtTitulo\"><br><br>\n");
       out.write("            <select name=\"Genero\">\n");
@@ -73,10 +75,13 @@ public final class CadastroFilmes_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            </select><br><br>\n");
       out.write("            <label>Sinopse:</label><br>\n");
       out.write("            <input type=\"text\" name=\"txtSinopse\"><br>\n");
+      out.write("            \n");
       out.write("            <label>Diretor:</label><br>\n");
       out.write("            <input type=\"text\" minlength=\"5\" name=\"txtDiretor\"><br>\n");
+      out.write("            \n");
       out.write("            <label>Ano de Lançamento:</label><br>\n");
-      out.write("            <input type=\"number\" min=\"1895\" max=\"3000\" name=\"txtAnoLancamento\"><br>\n");
+      out.write("            <input type=\"number\" min=\"1895\" max=\"2500\" name=\"txtAnoLancamento\"><br>\n");
+      out.write("            \n");
       out.write("            <label>Status:</label><br>\n");
       out.write("            <input type=\"radio\" name=\"Status\" value=\"Ativo\" checked=\"checked\" />Ativo\n");
       out.write("            <input type=\"radio\" name=\"Status\" value=\"Inativo\" />Inativo<br><br>\n");

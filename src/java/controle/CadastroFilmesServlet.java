@@ -7,11 +7,17 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Filmes;
+import modelo.Genero;
+import modelo.Usuario;
+import persistencia.FilmesDAO;
+import utilidades.PersonalizarMsgErro;
 
 /**
  *
@@ -32,6 +38,44 @@ public class CadastroFilmesServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String msgErro = "";
+        
+        String titulo = request.getParameter("txtTitulo");
+        String codGenero = request.getParameter("Genero");
+        String sinopse = request.getParameter("txtSinopse");
+        String diretor = request.getParameter("txtDiretor");
+        String anoLancamento = request.getParameter("txtAnoLancamento");
+        String status = request.getParameter("Status");
+        
+        if(codGenero.equals("")){
+            msgErro = "Um filme não pode ser cadastrado sem um Gênero";
+        }else{
+        Genero g = new Genero(Integer.parseInt(codGenero));
+        Usuario u = new Usuario("admin");
+        
+        Filmes f = new Filmes();
+        f.setTitulo(titulo);
+        f.setGenero(g);
+        f.setSinopse(sinopse);
+        f.setDiretor(diretor);
+        f.setAnoLancamento(0);
+        f.setStatus(status);
+        f.setUsuarioCadastro(u);
+        f.setDatahoraCadastro(new Date());
+        
+        
+      
+        
+        try{
+            FilmesDAO filmesDao = new FilmesDAO();
+            filmesDao.inserirFilmes(f);
+        }catch (Exception e){
+            msgErro = PersonalizarMsgErro.getMensagem(e.getMessage());
+        }
+        }
+        
+        
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
