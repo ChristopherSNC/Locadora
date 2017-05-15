@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Genero;
 
@@ -54,7 +55,44 @@ public class GeneroDAO {
 
         return resultado;
     }
+       
+    
+    public static ArrayList listar() throws SQLException, ClassNotFoundException{
+        
+        Connection conn = null;
+        PreparedStatement  preparedStatement = null;
+        ResultSet rs = null;
+        String SQL = "";
+        ArrayList<Genero> lista = new ArrayList<>();
+                
+        // Obtem conexao com BD
+        conn = ConexaoFactory.getConnection();
+        
+        // Comando SQL 
+        SQL = "SELECT * FROM generos ";
 
+        preparedStatement = conn.prepareStatement(SQL);
+
+        // Para buscar informações
+        rs = preparedStatement.executeQuery();   
+
+        // Verifica se possui dados
+        while (rs.next()) {
+            
+            Genero g = new Genero();
+            
+            g.setCodigo(rs.getInt("codigo"));
+            g.setNome(rs.getString("nome"));
+            
+            lista.add(g);
+         } 
+        
+        // Fechar conexao
+        conn.close();
+        
+        return lista;
+    }
+    
 //    public boolean inserirEndereco(Cliente cliente) throws SQLException {
 //        //não coloquei try-catch para se der erro, 
 //        //o erro será tratado no método inserirCliente;

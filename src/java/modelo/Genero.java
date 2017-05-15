@@ -12,6 +12,7 @@ package modelo;
 public class Genero {
     private String nome;
     private String descricao;  
+    private int codigo;
 
     /**
      * @return the nome
@@ -40,4 +41,20 @@ public class Genero {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
+    
 }
