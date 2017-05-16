@@ -4,6 +4,7 @@
     Author     : sala304b
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -21,8 +22,9 @@
         
         <a href="CadastroFilmes.jsp">Cadastro Filmes</a><br>
         <a href="CadastroGeneros.jsp">Cadastro Generos</a><br>
+        <c:if test="${usuarioAutenticado.perfil == 'ADM'}">
         <a href="CadastroUsuario.jsp">Cadastro Usuarios</a><br><br>
-        
+        </c:if>
         <a href="javascript:history.back()">Voltar</a><br>
         <a href="Logout">Logout</a><br>
         

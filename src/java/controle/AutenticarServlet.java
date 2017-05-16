@@ -49,6 +49,7 @@ public class AutenticarServlet extends HttpServlet {
             try{
                 Usuario autenticado = UsuarioDAO.buscar(login, senhaCriptografada );
             
+                
             if(autenticado != null){
 
                 // Informo ao servidor qual usuario autenticado
