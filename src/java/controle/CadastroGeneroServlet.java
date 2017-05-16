@@ -51,6 +51,7 @@ public class CadastroGeneroServlet extends HttpServlet {
           }catch(Exception e){
             msgErro = "Falha ao inserir o Gênero";
           }
+          response.sendRedirect("JSP/CadastroGeneros.jsp");
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */

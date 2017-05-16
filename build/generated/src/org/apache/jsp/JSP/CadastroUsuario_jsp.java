@@ -54,7 +54,7 @@ public final class CadastroUsuario_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        <h1>Cadastrar Usuario</h1>\n");
       out.write("        <hr>\n");
       out.write("        <a href=\"javascript:history.back()\">Voltar</a><br><br>\n");
-      out.write("        <form action=\"CadastroUsuario\">\n");
+      out.write("        <form action=\"../CadastroUsuario\">\n");
       out.write("            <label>Nome:</label>\n");
       out.write("            <input type=\"text\" name=\"txtNome\"><br><br>\n");
       out.write("            \n");

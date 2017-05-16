@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sala308b
@@ -16,7 +18,7 @@ public class Genero {
 
     public Genero() {
     }
-
+    
     public Genero(int codigo) {
         this.codigo = codigo;
     }

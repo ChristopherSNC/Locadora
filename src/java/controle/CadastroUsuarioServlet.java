@@ -62,7 +62,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
             }catch (Exception e){
                 msgErro = "Login ou senha inválidos"; 
             }
-            if(perfil.equals("Selecione um perfil")){
+            if(perfil.equals("Select")){
                 msgErro = "Nenhum perfil selecionado";
             }else if(msgErro.isEmpty()){
                 Usuario u = new Usuario();
@@ -74,11 +74,12 @@ public class CadastroUsuarioServlet extends HttpServlet {
             try{
                 UsuarioDAO usuarioDao = new UsuarioDAO();
                 usuarioDao.inserirUsuario(u);
+                response.sendRedirect("JSP/CadastroUsuario.jsp");
             }catch(Exception e){
-                msgErro = "Falha ao inserir o usuário";
+                msgErro = "Falha ao inserir o usuário, usuario já cadastrado.";
             }
-            response.sendRedirect("JSP/CadastroUsuario.jsp");
-        
+  
+            }
         }
         
         try (PrintWriter out = response.getWriter()) {
@@ -93,7 +94,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         }
-      }
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

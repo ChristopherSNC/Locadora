@@ -15,7 +15,7 @@
         <h1>Cadastrar Usuario</h1>
         <hr>
         <a href="javascript:history.back()">Voltar</a><br><br>
-        <form action="CadastroUsuario">
+        <form action="../CadastroUsuario">
             <label>Nome:</label>
             <input type="text" name="txtNome"><br><br>
             

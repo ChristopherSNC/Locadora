@@ -15,7 +15,7 @@
         <h1>Cadastrar Gêneros</h1>
         <hr>
         <a href="javascript:history.back()">Voltar</a><br><br>
-        <form action="CadastroGenero">
+        <form action="../CadastroGenero">
             <label>Nome:</label>
             <input type="text" minlength="4" name="txtNome"><br><br>
             
@@ -23,6 +23,8 @@
             <input type="text" name="txtDescricao"><br><br>
             
             <input type="submit" value="Cadastrar"><br>
+            
+            
         </form>
     </body>
 </html>

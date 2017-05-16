@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
@@ -60,7 +61,57 @@ public class UsuarioDAO {
 
         return resultado;
     }
+public static Usuario buscar(int id) throws SQLException, ClassNotFoundException{
+        
+        Connection conn = null;
+        PreparedStatement  preparedStatement = null;
+        ResultSet rs = null;
+        String SQL = "";
+        Usuario u = null;
+        
+        // Obtem conexao com BD
+        conn = ConexaoFactory.getConnection();
+        
+        // Comando SQL 
+        SQL = "SELECT * FROM usuarios " +
+                " WHERE idProduto = ? ";
 
+        preparedStatement = conn.prepareStatement(SQL);
+
+        preparedStatement.setInt(1, id);
+                
+        // Para buscar informações
+        rs = preparedStatement.executeQuery();   
+
+        // Verifica se possui dados
+        if (rs.next()) {
+            
+            u = new Usuario();
+            
+            u.setLogin(rs.getString("idProduto"));
+            u.setNome(rs.getString("descricao"));
+            u.setSenha(rs.getString("valor"));
+            u.setPerfil(rs.getString("qtdEstoque"));
+            u.setStatus(rs.getString("Status"));
+            // Nao existe tipo de dado java.util.Date no 
+            //JDBC entao temos que fazer uma conversao
+//            Date dataAux = new Date();
+//            dataAux.setTime(
+//                      rs.getTimestamp("dataCadastro").getTime());
+//            u.setDataCadastro(dataAux);
+//            
+//            Date dataAux2 = new Date();
+//            dataAux2.setTime(
+//                      rs.getTimestamp("dataUltReajuste").getTime());
+//            u.setDataUltReajuste(dataAux2);
+            
+         } 
+        
+        // Fechar conexao
+        conn.close();
+        
+        return u;
+    }
 //    public boolean inserirEndereco(Cliente cliente) throws SQLException {
 //        //não coloquei try-catch para se der erro, 
 //        //o erro será tratado no método inserirCliente;

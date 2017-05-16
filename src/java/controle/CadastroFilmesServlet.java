@@ -44,21 +44,22 @@ public class CadastroFilmesServlet extends HttpServlet {
         String codGenero = request.getParameter("Genero");
         String sinopse = request.getParameter("txtSinopse");
         String diretor = request.getParameter("txtDiretor");
-        String anoLancamento = request.getParameter("txtAnoLancamento");
+        String anoLancamentoAux = request.getParameter("txtAnoLancamento");
         String status = request.getParameter("Status");
         
         if(codGenero.equals("")){
             msgErro = "Um filme não pode ser cadastrado sem um Gênero";
         }else{
         Genero g = new Genero(Integer.parseInt(codGenero));
-        Usuario u = new Usuario("admin");
+        Usuario u = new Usuario("ToninMegatron");
+        int anoLancamento = Integer.parseInt(anoLancamentoAux);
         
         Filmes f = new Filmes();
         f.setTitulo(titulo);
         f.setGenero(g);
         f.setSinopse(sinopse);
         f.setDiretor(diretor);
-        f.setAnoLancamento(0);
+        f.setAnoLancamento(anoLancamento);
         f.setStatus(status);
         f.setUsuarioCadastro(u);
         f.setDatahoraCadastro(new Date());
