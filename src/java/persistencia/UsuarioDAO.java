@@ -61,7 +61,7 @@ public class UsuarioDAO {
 
         return resultado;
     }
-public static Usuario buscar(int id) throws SQLException, ClassNotFoundException{
+public static Usuario buscar(String login, String senha) throws SQLException, ClassNotFoundException{
         
         Connection conn = null;
         PreparedStatement  preparedStatement = null;
@@ -74,11 +74,12 @@ public static Usuario buscar(int id) throws SQLException, ClassNotFoundException
         
         // Comando SQL 
         SQL = "SELECT * FROM usuarios " +
-                " WHERE idProduto = ? ";
+                " WHERE login = ? and senha = ? ";
 
         preparedStatement = conn.prepareStatement(SQL);
 
-        preparedStatement.setInt(1, id);
+        preparedStatement.setString(1, login);
+        preparedStatement.setString(2, senha);
                 
         // Para buscar informações
         rs = preparedStatement.executeQuery();   
@@ -88,11 +89,10 @@ public static Usuario buscar(int id) throws SQLException, ClassNotFoundException
             
             u = new Usuario();
             
-            u.setLogin(rs.getString("idProduto"));
-            u.setNome(rs.getString("descricao"));
-            u.setSenha(rs.getString("valor"));
-            u.setPerfil(rs.getString("qtdEstoque"));
-            u.setStatus(rs.getString("Status"));
+            u.setLogin(rs.getString("login"));
+            u.setNome(rs.getString("nome"));
+            u.setPerfil(rs.getString("perfil"));
+            u.setStatus(rs.getString("status"));
             // Nao existe tipo de dado java.util.Date no 
             //JDBC entao temos que fazer uma conversao
 //            Date dataAux = new Date();
