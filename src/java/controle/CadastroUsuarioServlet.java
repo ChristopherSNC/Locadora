@@ -55,6 +55,12 @@ public class CadastroUsuarioServlet extends HttpServlet {
             msgErro = "Não é permitido o uso de espaço para senha";
         }else if(senhaAux.equals(loginAux)){
             msgErro = "Não é permitido o uso do login como senha";
+        }else if(senhaAux.isEmpty()){
+            msgErro = "Favor Informar a senha";
+        }else if(loginAux.isEmpty()){
+            msgErro = "Favor Informar a senha";    
+            
+            
         }else{
             try{
                 login = loginAux;

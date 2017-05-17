@@ -23,10 +23,11 @@
         <a href="CadastroFilmes.jsp">Cadastro Filmes</a><br>
         <a href="CadastroGeneros.jsp">Cadastro Generos</a><br>
         <c:if test="${usuarioAutenticado.perfil == 'ADM'}">
-        <a href="CadastroUsuario.jsp">Cadastro Usuarios</a><br><br>
+         <a href="CadastroUsuario.jsp">Cadastro Usuario</a>
         </c:if>
+        <br><br>
         <a href="javascript:history.back()">Voltar</a><br>
-        <a href="Logout">Logout</a><br>
+        <a href="../Logout">Logout</a><br>
         
         
     </body>

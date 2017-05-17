@@ -5,10 +5,13 @@
         <group>
             <file>file:/C:/ProjetosGit/Locadora/web/JSP/CadastroGeneros.jsp</file>
             <file>file:/C:/ProjetosGit/Locadora/web/JSP/CadastroUsuario.jsp</file>
+            <file>file:/C:/ProjetosGit/Locadora/src/java/controle/AutenticarServlet.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/controle/CadastroUsuarioServlet.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/persistencia/UsuarioDAO.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/modelo/Genero.java</file>
+            <file>file:/C:/ProjetosGit/Locadora/web/JSP/PainelUsuario.jsp</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/utilidades/PersonalizarMsgErro.java</file>
+            <file>file:/C:/ProjetosGit/Locadora/src/java/controle/Permissao.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/persistencia/FilmesDAO.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/controle/CadastroGeneroServlet.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/modelo/Filmes.java</file>
@@ -17,6 +20,7 @@
             <file>file:/C:/ProjetosGit/Locadora/src/java/modelo/Usuario.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/persistencia/GeneroDAO.java</file>
             <file>file:/C:/ProjetosGit/Locadora/src/java/controle/CadastroFilmesServlet.java</file>
+            <file>file:/C:/ProjetosGit/Locadora/web/JSP/TelaInicial.jsp</file>
         </group>
     </open-files>
 </project-private>

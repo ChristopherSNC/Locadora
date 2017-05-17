@@ -47,7 +47,19 @@ public class CadastroFilmesServlet extends HttpServlet {
         String anoLancamentoAux = request.getParameter("txtAnoLancamento");
         String status = request.getParameter("Status");
         
-        if(codGenero.equals("")){
+        
+        
+        if(titulo.isEmpty()){
+            msgErro = "Por favor, informar o nome do filme";
+        }else if(sinopse.isEmpty()){
+            msgErro = "Por favor, informar a sinopse";
+        }else if(diretor.isEmpty()){
+            msgErro = "Por favor, informar o nome do Diretor";
+        }else if(anoLancamentoAux.isEmpty()){
+            msgErro = "Por favor, informar o ano de lançamento do filme";
+        }else if(anoLancamentoAux.length() < 1895){
+            msgErro = "Ano de lançamento invalido";    
+        }else if(codGenero.equals("")){
             msgErro = "Um filme não pode ser cadastrado sem um Gênero";
         }else{
         Genero g = new Genero(Integer.parseInt(codGenero));
@@ -85,7 +97,7 @@ public class CadastroFilmesServlet extends HttpServlet {
             out.println("<title>Servlet CadastroFilmesServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CadastroFilmesServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>ERRO!! \n " + msgErro + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

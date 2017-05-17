@@ -21,7 +21,7 @@ import modelo.Usuario;
  *
  * @author sala304b
  */
-@WebFilter(filterName = "Permissao", urlPatterns = {"/CadastroUsuario.jsp"})
+@WebFilter(filterName = "Permissao", urlPatterns = {"/JSP/CadastroUsuario.jsp"})
 
 public class Permissao implements Filter{
 
@@ -37,7 +37,7 @@ public class Permissao implements Filter{
         
         Usuario usuario = (Usuario) req.getSession().getAttribute("usuarioAutenticado");
         if(usuario.getPerfil().equals("FUNC")){
-            res.sendRedirect("JSP/PainelUsuario.jps");
+            res.sendRedirect("PainelUsuario.jsp");
         }else{
             chain.doFilter(request, response);
         }
